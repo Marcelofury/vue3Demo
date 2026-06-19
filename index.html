@@ -9,6 +9,7 @@
 <body>
     <div id="app">
         <h1>{{message}}</h1>
+        <p>Lucky Number : {{luckyNumber}}</p>
     </div>
     
 </body>
@@ -16,8 +17,11 @@
     const {createApp} = vue;
     createApp({
         setup(){
+            const message ="Hello Vue!";
+            const luckyNumber = 7;
             return{
-                message: "Hello vue 3!"
+                message,
+                luckyNumber,
             }
         }
     }).mount("app")
