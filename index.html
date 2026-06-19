@@ -13,6 +13,7 @@
         <p v-once>Lucky Number : {{luckyNumber}}</p>
         <p>Render once Lucky Number  {{luckyNumber%2==0?"even number": "odd number"}}</p>
         <p>{{updateLuckyNumber()}}</p>
+        <a v-bind:href="blogUrl">Visit blog</a>
         <p>Lucky Number List : {{luckyNumbers}}</p>
         <p>{{employee.salary}}</p>
     </div>
@@ -25,6 +26,7 @@
             const message ="Hello Vue!";
             let  luckyNumber = ref(6);
             const luckyNumbers = [3,7,9,11];
+            const blogUrl = "https://www.dotnetmastery.com"
             const employee=reactive({
                 name: "John",
                 age:30,
@@ -49,6 +51,7 @@
                 message,
                 luckyNumber,
                 luckyNumbers,
+                blogUrl,
                 employee,
                 updateLuckyNumber,
                 toUpperCase,
