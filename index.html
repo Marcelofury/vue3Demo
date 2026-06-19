@@ -14,6 +14,11 @@
         <p>{{employee.name}} is {{employee.age}} years old.</p>
         <p>His salary is {{employee.salary}}</p>
         <p v-show="employee.hasCorporateCard">Spending Limit for Card : {{employee.spendingLimit}}</p>
+        <p v-if="employee.hasCorporateCard">Spending Limit for Card : {{employee.spendingLimit}}</p>
+        <!-- v-f doesnt show any html tag in the console after a condition being set to false while v-show is able to display its html element with "display=none".
+        However,when a condition is set to true, they all show their html elements-->
+        <p v-else-if="employee.salary>25000 && employee.yearsWithCompany>1">Employee is eligible for a Corporate Card</p>
+        <p v-else>Employee is not eligible for a corporate card</p>
        
     </div>
     
