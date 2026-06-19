@@ -18,13 +18,13 @@
     
 </body>
 <script>
-    const { createApp, ref } = Vue;
+    const { createApp, ref, reactive } = Vue;
     createApp({
         setup(){
             const message ="Hello Vue!";
             let  luckyNumber = ref(6);
             const luckyNumbers = [3,7,9,11];
-            const employee=ref({
+            const employee=reactive({
                 name: "John",
                 age:30,
                 salary:50000,
@@ -32,7 +32,10 @@
             function updateLuckyNumber(){
                 setTimeout(()=>{
                     luckyNumber.value = 77;
-                    employee.value.salary = 80000;
+                    // using ref needs .value but reactive is the opposite
+                    // employee.value.salary = 80000;
+                    // however reactive doesn't work on premitive data taypes like numbers, strings thus ref was established to overcome this
+                    employee.salary = 80000;
 
                 },2000)
                 
