@@ -18,11 +18,11 @@
     
 </body>
 <script>
-    const { createApp } = Vue;
+    const { createApp, ref } = Vue;
     createApp({
         setup(){
             const message ="Hello Vue!";
-            const luckyNumber = 7;
+            let  luckyNumber = ref(6);
             const luckyNumbers = [3,7,9,11];
             const employee={
                 name: "John",
@@ -30,7 +30,9 @@
                 salary:50000,
             }
             function getRandomLuckyNumber(){
-                return Math.floor(Math.random()*10)+1;
+                luckyNumber.value = Math.floor(Math.random()*10)+1;
+                console.log("Lucky Number :" + luckyNumber.value);
+                return Math.floor(Math.random()*10)+1
 
             };
             function toUpperCase(){
