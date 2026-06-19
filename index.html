@@ -10,7 +10,8 @@
     <div id="app">
         <span v-html="toUpperCase()"></span>
         <p>Lucky Number : {{luckyNumber}}</p>
-        <p>Lucky Number is an {{luckyNumber%2==0?"even number": "odd number"}}</p>
+        <p v-once>Lucky Number : {{luckyNumber}}</p>
+        <p>Render once Lucky Number  {{luckyNumber%2==0?"even number": "odd number"}}</p>
         <p>{{updateLuckyNumber()}}</p>
         <p>Lucky Number List : {{luckyNumbers}}</p>
         <p>{{employee.salary}}</p>
