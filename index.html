@@ -8,14 +8,12 @@
 </head>
 <body>
     <div id="app">
-        <span v-html="toUpperCase()"></span>
-        <p>Lucky Number : {{luckyNumber}}</p>
-        <p v-once>Lucky Number : {{luckyNumber}}</p>
-        <p>Render once Lucky Number  {{luckyNumber%2==0?"even number": "odd number"}}</p>
-        <p>{{updateLuckyNumber()}}</p>
-        <a v-bind:href="blogUrl">Visit blog</a>
-        <p>Lucky Number List : {{luckyNumbers}}</p>
-        <p>{{employee.salary}}</p>
+         <h1>{{message}}</h1>
+        <p> Lucky Number : {{luckyNumber}}</p>
+         
+        <p>{{employee.name}} is {{employee.age}} years old.</p>
+        <p>His salary is {{employee.salary}}</p>
+       
     </div>
     
 </body>
@@ -24,37 +22,26 @@
     createApp({
         setup(){
             const message ="Hello Vue!";
-            let  luckyNumber = ref(6);
+
             const luckyNumbers = [3,7,9,11];
-            const blogUrl = "https://www.dotnetmastery.com"
+            
             const employee=reactive({
                 name: "John",
                 age:30,
                 salary:50000,
-            })
-            function updateLuckyNumber(){
-                setTimeout(()=>{
-                    luckyNumber.value = 77;
-                    // using ref needs .value but reactive is the opposite
-                    // employee.value.salary = 80000;
-                    // however reactive doesn't work on premitive data taypes like numbers, strings thus ref was established to overcome this
-                    employee.salary = 80000;
+                hasCorporateCard: true,
+                spendingLimit: 10000,
+                yearsWithCompany: 5,
+            });
+            
 
-                },2000)
-                
-
-            };
-            function toUpperCase(){
-                return `<h1><u>${message}</u></h1>`;
-            };
+            
+           
             return{
                 message,
-                luckyNumber,
-                luckyNumbers,
-                blogUrl,
                 employee,
-                updateLuckyNumber,
-                toUpperCase,
+                
+                
             }
         }
     }).mount("#app")
