@@ -9,7 +9,7 @@
 <body>
     <div id="app">
         <!-- Binding style has 2 ways --> 
-        <!--STEP 1--><div v-bind:style="{backgroundColor: 'aqua', fontSize: '40px'}">Hello World</div> 
+        <!--STEP 1--><div v-bind:style="{backgroundColor: 'aqua', fontSize: fontSizeTemp+ 'px'}">Hello World</div> 
         </div>
         <!--STEP 2-->
         <div v-bind:style="{'background-color': 'aqua', 'font-size': '40px'}">Hello World</div>
@@ -17,13 +17,14 @@
 </body>
 <script>
     const { createApp, ref, reactive } = Vue;
+    const fontSizeTemp = 60;
     createApp({
         setup(){
             
         
            
             return{
-                
+                fontSizeTemp,
                 
             }
         }
