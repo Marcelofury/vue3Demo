@@ -9,8 +9,11 @@
 <body>
     <div id="app">
          <h1>{{message}}</h1>
-        <p v-for="(luckyNumber,index) in luckyNumbers
-        "> {{index}}luckyNumber: {{luckyNumber}}</p>
+         lucky Numbers;
+        <span v-for="(luckyNumber,index) in luckyNumbers
+        "> 
+        <br>
+        <span v-once>{{luckyNumber}}</span></span>
         <hr>
         <p>Projects in Pipeline</p>
         <ul>
