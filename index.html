@@ -13,20 +13,33 @@
         </div>
         <!--STEP 2-->
         <div v-bind:style="{'background-color': 'aqua', 'font-size': '40px'}">Hello World</div>
-
-        <p  class="padding-medium" v-bind:class="{h2:true, 'bg-grey': true}" >Random Text</p>
-    
+<br><br>
+        <p class="padding-medium" v-bind:class="{ h2:isMaintitle(), 'bg-green': HasGreenBackground()}" >Random Text</p>
+    <br><br>
+     <p class="padding-medium" v-bind:class="MainTitle">Random Text</p>
 </body>
 <script>
     const { createApp, ref, reactive } = Vue;
-    const fontSizeTemp = 60;
+    const MainTitle={
+        h1:true,
+        "bg-grey":true,
+    }
     createApp({
         setup(){
+            function isMaintitle(){
+                return true;
+            }
             
+            function HasGreenBackground (){
+                return true;
+            }
         
            
             return{
                 fontSizeTemp, 
+                isMaintitle,
+                HasGreenBackground,
+                MainTitle,
                 
             }
         }
