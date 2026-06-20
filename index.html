@@ -4,65 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue3 Demo</title>
+    <!-- Importing Vue 3 via CDN -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
 </head>
 <body>
     <div id="app">
-        <!-- Binding style has 2 ways --> 
-        <!--STEP 1--><div v-bind:style="{backgroundColor: 'aqua', fontSize: fontSizeTemp+ 'px'}">Hello World</div> 
-        </div>
-        <!--STEP 2-->
-        <div v-bind:style="{'background-color': 'aqua', 'font-size': '40px'}">Hello World</div>
-<br><br>
-        <p class="padding-medium" v-bind:class="{ h2:isMaintitle(), 'bg-green': HasGreenBackground()}" >Random Text</p>
-    <br><br>
-     <p class="padding-medium" v-bind:class="MainTitle">Random Text</p>
-</body>
-<script>
-    const { createApp, ref, reactive } = Vue;
-    const MainTitle={
-        h1:true,
-        "bg-grey":true,
-    }
-    createApp({
-        setup(){
-            function isMaintitle(){
-                return true;
-            }
-            
-            function HasGreenBackground (){
-                return true;
-            }
+        <!-- Binding style: CamelCase approach --> 
+        <!-- STEP 1 -->
+        <div v-bind:style="{backgroundColor: 'aqua', fontSize: fontSizeTemp + 'px'}">Hello World (Step 1)</div> 
         
-           
-            return{
-                fontSizeTemp, 
-                isMaintitle,
-                HasGreenBackground,
-                MainTitle,
-                
-            }
-        }
-    }).mount("#app")
-</script>
-<style>
-    .h1{
-        font-size: 60px;
-        color: green;
-    }
-    .h2{
-        font-size: 40px;
-        color: chocolate;
-    }
-    .bg-grey{
-        background-color: grey;
+        <br><br>
 
-    }
-    .bg-green{
-        background-color: lightgreen;
-    }
-    .padding-medium{
-        padding:20px;
-    }
-</style>
+        <!-- Binding style: Kebab-case approach -->
+        <!-- STEP 2 -->
+        <div v-bind:style="{'background-color': 'aqua', 'font-size': '40px'}">Hello World (Step 2)</div>
+
+        <br><br>
+
+        <!-- Binding classes using functions -->
+        <p class="padding-medium" v-bind:class="{ h2: isMaintitle(), 'bg-green': HasGreenBackground() }" >Random Text with Dynamic Classes</p>
+        
+        <br><br>
+
+        <!-- Binding class using an object -->
+        <p class="padding-medium" v-bind:class="[isMaintitle()? MainTitle: '',borderClass]">Random Text with Object Class</p>
+
+        <br><br>
+
+        <!-- Binding style using a dedicated style object -->
+        <span v-bind:style="someStyle">Random Style Block</span>
+    </div> <!-- Correctly placed main closing tag here -->
+
+    <script>
+        const { createApp, ref, reactive } = Vue;
+       
+        createApp({
+            setup(){
+                // Declared the missing variable using ref for Vue 3 reactivity
+                const fontSizeTemp = ref(24);
+
+                // Wrapped state objects in reactive() so changes trigger UI updates
+                const MainTitle = reactive({
+                    h1: true,
+                    "bg-grey": true,
+                });
+                const borderClass={
+                    border:true,
+                }
+
+                const someStyle = reactive({
+                    fontSize: "40px",
+                    backgroundColor: "lightgreen", // Fixed the missing "d" typo
+                    margin: "20px",
+                    border: "1px solid black"
+                });
+
+                function isMaintitle(){
+                    return true;
+                }
+                
+                function HasGreenBackground (){
+                    return true;
+                }
+            
+                return {
+                    fontSizeTemp, 
+                    isMaintitle,
+                    HasGreenBackground,
+                    MainTitle,
+                    someStyle,
+                    borderClass
+                }
+            }
+        }).mount("#app")
+    </script>
+
+    <style>
+        .h1 {
+            font-size: 60px;
+            color: green;
+        }
+        .h2 {
+            font-size: 40px;
+            color: chocolate;
+        }
+        .bg-grey {
+            background-color: grey;
+        }
+        .bg-green {
+            background-color: lightgreen;
+        }
+        .padding-medium {
+            padding: 20px;
+        }
+        .border{
+            border: 1px solid red;
+        }
+    </style>
+</body>
 </html>
