@@ -13,6 +13,8 @@
         </div>
         <!--STEP 2-->
         <div v-bind:style="{'background-color': 'aqua', 'font-size': '40px'}">Hello World</div>
+
+        <p  class="padding-medium" v-bind:class="{h2:true, 'bg-grey': true}" >Random Text</p>
     
 </body>
 <script>
@@ -24,10 +26,30 @@
         
            
             return{
-                fontSizeTemp,
+                fontSizeTemp, 
                 
             }
         }
     }).mount("#app")
 </script>
+<style>
+    .h1{
+        font-size: 60px;
+        color: green;
+    }
+    .h2{
+        font-size: 40px;
+        color: chocolate;
+    }
+    .bg-grey{
+        background-color: grey;
+
+    }
+    .bg-green{
+        background-color: lightgreen;
+    }
+    .padding-medium{
+        padding:20px;
+    }
+</style>
 </html>
