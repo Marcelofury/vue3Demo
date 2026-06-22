@@ -9,9 +9,10 @@
 </head>
 <body>
     <div id="app">
-        <a href="www.google.com" v-on:click.prevent="buttonClick('vue is exciting - Link','Hello World', $event)"> Google</a>
-        <div v-on:click.once="buttonClick('vue is exciting - div','Hello World', $event)">
-            vue div
+        
+        <div>
+            
+            <input type="text" v-on:keyup.enter="pressEnter">
         <button v-on:click.stop="buttonClick('vue is exciting - Button','Hello World', $event)">Click Me</button>
         <p>x:{{x}} and y : {{y}}</p>
         </div>
@@ -31,12 +32,16 @@
                     y.value = event.y
                     
                 }
+                function pressEnter(){
+                    alert("Enter Key Placed")
+                }
                
                 return {
                    
                 buttonClick,
                 x,
-                y
+                y,
+                pressEnter
                 }
             }
         }).mount("#app")
