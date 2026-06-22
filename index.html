@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="app">
-        <button v-on:click="buttonClick">Click Me</button>
+        <button v-on:click="buttonClick('vue is exciting')">Click Me</button>
     </div> 
 
     <script>
@@ -18,8 +18,8 @@
         createApp({
             setup(){
 
-                function buttonClick(){
-                    alert('Button Clicked')
+                function buttonClick(newMessage){
+                    alert(newMessage)
                 }
                
                 return {
