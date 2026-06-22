@@ -11,11 +11,12 @@
     <div id="app">
         
         <div>
-            
-            <input type="text" v-on:keyup.enter="pressEnter">
-        <button v-on:click.stop="buttonClick('vue is exciting - Button','Hello World', $event)">Click Me</button>
-        <p>x:{{x}} and y : {{y}}</p>
+       Learn vue
         </div>
+        <input type="text" v-model="name"> <br>
+        <br>
+        <input type="number" v-model="age">
+        <p>  {{name}} is {{age}} years old</p>
     </div> 
 
     <script>
@@ -23,25 +24,14 @@
        
         createApp({
             setup(){
-                let x = ref(0);
-                let y = ref(0)
-
-                function buttonClick(newMessage,newMessage1,event){
-                    alert(newMessage)
-                    x.value = event.x;
-                    y.value = event.y
-                    
-                }
-                function pressEnter(){
-                    alert("Enter Key Placed")
-                }
-               
+                let name = ref("Marcel");
+                let age = ref(23);
+                
                 return {
+                    name,
+                    age
                    
-                buttonClick,
-                x,
-                y,
-                pressEnter
+               
                 }
             }
         }).mount("#app")
