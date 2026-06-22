@@ -9,97 +9,22 @@
 </head>
 <body>
     <div id="app">
-        <!-- Binding style: CamelCase approach --> 
-        <!-- STEP 1 -->
-        <div :style="{backgroundColor: 'aqua', fontSize: fontSizeTemp + 'px'}">Hello World (Step 1)</div> 
-        
-        <br><br>
-
-        <!-- Binding style: Kebab-case approach -->
-        <!-- STEP 2 -->
-        <div :style="{'background-color': 'aqua', 'font-size': '40px'}">Hello World (Step 2)</div>
-
-        <br><br>
-
-        <!-- Binding classes using functions -->
-        <p class="padding-medium" :class="{ h2: isMaintitle(), 'bg-green': HasGreenBackground() }" >Random Text with Dynamic Classes</p>
-        
-        <br><br>
-
-        <!-- Binding class using an object -->
-        <p class="padding-medium" :class="[isMaintitle()? MainTitle: '',borderClass]">Random Text with Object Class</p>
-
-        <br><br>
-
-        <!-- Binding style using a dedicated style object -->
-        <span :style="someStyle">Random Style Block</span>
-    </div> <!-- Correctly placed main closing tag here -->
+        Hello World
+    </div> 
 
     <script>
         const { createApp, ref, reactive } = Vue;
        
         createApp({
             setup(){
-                // Declared the missing variable using ref for Vue 3 reactivity
-                const fontSizeTemp = ref(24);
-
-                // Wrapped state objects in reactive() so changes trigger UI updates
-                const MainTitle = reactive({
-                    h1: true,
-                    "bg-grey": true,
-                });
-                const borderClass={
-                    border:true,
-                }
-
-                const someStyle = reactive({
-                    fontSize: "40px",
-                    backgroundColor: "lightgreen", // Fixed the missing "d" typo
-                    margin: "20px",
-                    border: "1px solid black"
-                });
-
-                function isMaintitle(){
-                    return true;
-                }
-                
-                function HasGreenBackground (){
-                    return true;
-                }
-            
+               
                 return {
-                    fontSizeTemp, 
-                    isMaintitle,
-                    HasGreenBackground,
-                    MainTitle,
-                    someStyle,
-                    borderClass
+                   
                 }
             }
         }).mount("#app")
     </script>
 
-    <style>
-        .h1 {
-            font-size: 60px;
-            color: green;
-        }
-        .h2 {
-            font-size: 40px;
-            color: chocolate;
-        }
-        .bg-grey {
-            background-color: grey;
-        }
-        .bg-green {
-            background-color: lightgreen;
-        }
-        .padding-medium {
-            padding: 20px;
-        }
-        .border{
-            border: 1px solid red;
-        }
-    </style>
+    
 </body>
 </html>
