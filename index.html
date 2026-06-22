@@ -13,9 +13,11 @@
         <div>
        Learn vue
         </div>
-        <input type="text" v-model="name"> <br>
+        Name: 
+        <input type="text" v-model.trim="name"> <br>
         <br>
-        <input type="number" v-model="age">
+        Age: 
+        <input type="number" v-model.lazy="age">
         <p>  {{name}} is {{age}} years old</p>
     </div> 
 
