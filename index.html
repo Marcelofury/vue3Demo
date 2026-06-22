@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="app">
-        Hello World
+        <button v-on:click="buttonClick">Click Me</button>
     </div> 
 
     <script>
@@ -17,9 +17,14 @@
        
         createApp({
             setup(){
+
+                function buttonClick(){
+                    alert('Button Clicked')
+                }
                
                 return {
                    
+                buttonClick,
                 }
             }
         }).mount("#app")
