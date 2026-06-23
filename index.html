@@ -11,10 +11,10 @@
     <div id="app">
         <div>Learn Vue</div>
 
-        <p>{{counter}}</p>
+        <p>{{obj.count}}</p>
         <p>{{getFullName}}</p>
-        <button v-on:click="counter++">Increment</button>
-        <button v-on:click="counter--"> Decrement</button>
+        <button v-on:click="obj.count++">Increment</button>
+        <button v-on:click="obj.count--"> Decrement</button>
         <br><br>
         First Name:
         <input type="text" v-model="firstName">
@@ -30,10 +30,12 @@
                 let age = ref(23);
                 let counter = ref(0);
 
+                const obj = reactive({count:0})
+
                 let firstName = ref("Ben");
                 let lastName = ref("Patel");
 
-                watch(()=>counter.value,(newValue,oldValue) =>{
+                watch(()=>obj.count,(newValue,oldValue) =>{
                     console.log("Counter value changed from",oldValue, "to", newValue);
 
                     if(newValue == 5){
@@ -57,7 +59,8 @@
                     counter,
                     firstName,
                     lastName,
-                    getFullName
+                    getFullName,
+                    obj
                    
                
                 }
