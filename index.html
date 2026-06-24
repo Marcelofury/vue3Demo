@@ -30,6 +30,7 @@
             <div class="border p-3 w-100 mx-auto">
                 <div class="text-center">
                     <h4 class="text-center"> Movie List</h4>
+                    <span class="text-danger" v-if="movies.length >= 3 ">You can only add 5 movies</span>
                     <hr>
                 </div>
                 <ul class="list-group">
@@ -56,6 +57,7 @@
                 ])
                 
                 let newMovie = reactive({title: "", year: ""})
+                let showMessage = ref(true)
 
                 
 
@@ -85,7 +87,8 @@
                     newMovie,
                     addMovie,
                     removeMovie,
-                    getAllMovieText
+                    getAllMovieText,
+                    showMessage
                 }
             }
         }).mount("#app")
