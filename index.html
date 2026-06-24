@@ -33,8 +33,8 @@
                     <hr>
                 </div>
                 <ul class="list-group">
-                <li v-for="movie in movies" class="list-group-item">
-                    {{movie.title}} - {{movie.year}}
+                <li v-for="movie in getAllMovieText()" class="list-group-item">
+                    {{movie}} 
 
                 </li>
                 </ul>
@@ -72,11 +72,20 @@
                     movies.pop()
                  }
 
+                 function getAllMovieText(){
+                    return movies.map((movie)=>{
+                        return `${movie.title} was released in ${movie.year}`
+
+
+                    })
+                 }
+
                 return {
                     movies,
                     newMovie,
                     addMovie,
-                    removeMovie
+                    removeMovie,
+                    getAllMovieText
                 }
             }
         }).mount("#app")
