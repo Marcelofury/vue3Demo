@@ -15,15 +15,16 @@
         <div class="bg-info p-5 m-5">
             <div class="h2 text-center"> Learn Vue - Forms</div>
             <hr>
-            <div class="input-group mb-3">
+            <div class="input-group mt-3">
                 <span class="input-group-text">Email</span>
                 <input type="text" class="form-control " v-model.trim="formObj.email" >
             </div>
-            <div class="input-group mb-3">
+            <div class="input-group mt-3">
                 <span class="input-group-text">Name</span>
-                <input type="text" class="form-control " v-model.trim="formObj.name" >
+                <input type="text" class="form-control " v-model.trim="formObj.name" v-on:blur="validateName()" >
             </div>
-            <div class="input-group mb-3">
+            <div v-if="!formObj.isNameValid" class="text-danger">Name should be atleast 3 characters long </div>
+            <div class="input-group mt-3">
                 <span class="input-group-text">Phone</span>
                 <input type="number" class="form-control" v-model.number="formObj.phone" >
             </div>
@@ -46,13 +47,13 @@
 </select>
 </div>
             
-            <div class="input-group mb-3">
+            <div class="input-group mt-3">
                 
                 <input type="checkbox" class="form-check-input " v-model="formObj.subscribe" >
                 <label class="form-check-label"> &nbsp;Subscribe to newsletter</label>
             </div>
            
-            <div class="text-center pb-3">
+            <div class="text-center pt-3">
                 <button class="btn btn-secondary m-2 w-50" >Submit</button>
                
             </div>
@@ -74,15 +75,24 @@
                     name:"",
                     phone:"",
                     subscribe: false,
-                    gender:""
+                    gender:"",
+                    isNameValid:true 
                 })
 
                 function handleSubmit(){
                     console.log(formObj)
                 }
+                function validateName(){
+                    if(formObj.name.length < 3){
+                        formObj.isNameValid = false;
+                    }else{
+                        formObj.isNameValid = true;
+                    }
+                }
                 return {
                    formObj,
-                   handleSubmit
+                   handleSubmit,
+                   validateName
                 }
             }
         }).mount("#app")
