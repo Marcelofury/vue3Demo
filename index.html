@@ -12,9 +12,10 @@
 <body>
     <div id="app" class="container">
         <form v-on:submit.prevent="handleSubmit">
-        <div class="bg-info p-5 m-5">
-            <div class="h2 text-center"> Learn Vue - Forms</div>
+        <div class="bg-warning p-5 m-5">
+            <div class="h2 text-center"> Learn Vue - FormsOPedia</div>
             <hr>
+            <ul><li v-for="error in errorList" class="text-danger">{{error}}</li></ul>
             <div class="input-group mt-3">
                 <span class="input-group-text">Email</span>
                 <input type="text" class="form-control " v-model.trim="formObj.email" >
@@ -80,8 +81,24 @@
                 })
 
                 function handleSubmit(){
+                    errorList.length = 0;
+                    if(formObj.name.length < 3 ){
+                        errorList.push("Name must be more than 3 characters")
+                    }
+                    if(formObj.email===""){
+                        errorList.push("Email is required")
+                    }
+                    if(!formObj.subscribe){
+                        errorList.push("Please subscribe to the newsletter")
+                    }
+                    
                     console.log(formObj)
+                    if(!errorList.length){
+                        alert("Form Submitted succesfully")
+                    }
                 }
+
+                const errorList = reactive([])
                 function validateName(){
                     if(formObj.name.length < 3){
                         formObj.isNameValid = false;
@@ -92,7 +109,8 @@
                 return {
                    formObj,
                    handleSubmit,
-                   validateName
+                   validateName,
+                   errorList
                 }
             }
         }).mount("#app")
