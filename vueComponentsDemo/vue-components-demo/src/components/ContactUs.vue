@@ -1,0 +1,8 @@
+<template>
+    <div>
+        <h1>Contact Us</h1>
+        <p>Please send an email to hello@dotnetmastery</p>
+</div>
+</template>
+<script></script>
+<style></style>
