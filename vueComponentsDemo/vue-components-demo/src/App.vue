@@ -2,7 +2,7 @@
   <div class="container">
   <div>{{ message }}</div>
   
-  <Contact name="Bhrugen" phone="123455554432" :ownername="contactsOwner"></Contact>
+  <Contact name="Bhrugen" :phone="123455554432" :ownername="contactsOwner"></Contact>
   
   </div>
    
