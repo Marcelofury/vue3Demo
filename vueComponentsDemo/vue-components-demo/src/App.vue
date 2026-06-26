@@ -4,16 +4,11 @@
   <button-count></button-count>
 </template>
 
-<script>
+<script setup>
 
-export default{
-  setup(){
-     const message = "Hello Vue";
-     return {
-      message
-     }
-  }
-}
+
+  const message = "Hello Vue";
+     
 </script>
 
 <style>
