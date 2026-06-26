@@ -2,7 +2,7 @@
   <div class="container">
   <div>{{ message }}</div>
   
-  <ContactUs></ContactUs>
+  <Contact name="Bhrugen" phone="123455554432"></Contact>
   
   </div>
    
@@ -10,7 +10,7 @@
 
 <script setup>
 import ButtonCount from "./components/ButtonCount.vue"
-import ContactUs from "./components/ContactUs.vue"
+import Contact from "./components/Contact.vue"
 
   const message = "Hello Vue";
      
