@@ -1,9 +1,11 @@
 <template>
+  <div class="container">
   <div>{{ message }}</div>
-  <!--Local component-->
-  <ContactUs></ContactUs>
-  <ButtonCount></ButtonCount>
   
+  <ContactUs></ContactUs>
+  
+  </div>
+   
 </template>
 
 <script setup>
