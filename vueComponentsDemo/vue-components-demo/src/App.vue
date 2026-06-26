@@ -2,7 +2,7 @@
   <div class="container">
   <div>{{ message }}</div>
   
-  <Contact name="Bhrugen" phone="123455554432"></Contact>
+  <Contact name="Bhrugen" phone="123455554432" :ownername="contactsOwner"></Contact>
   
   </div>
    
@@ -13,6 +13,7 @@ import ButtonCount from "./components/ButtonCount.vue"
 import Contact from "./components/Contact.vue"
 
   const message = "Hello Vue";
+  const contactsOwner="dotnetmastery"
      
 </script>
 
