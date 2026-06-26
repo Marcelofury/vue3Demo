@@ -1,8 +1,15 @@
 <template>
     <div>
         <h1>Contact Us</h1>
-        <p>Please send an email to hello@dotnetmastery</p>
+        <p>Please send an email to {{ email }}</p>
 </div>
 </template>
-<script></script>
+<script>
+import { ref } from "vue";
+export default{
+    setup() {
+        const email = ref("hello@dotnetmastery.com")
+        return { email }
+    },
+}</script>
 <style></style>

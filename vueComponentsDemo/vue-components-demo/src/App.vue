@@ -1,6 +1,7 @@
 <template>
   <div>{{ message }}</div>
   <contact-us></contact-us>
+  <button-count></button-count>
 </template>
 
 <script>
