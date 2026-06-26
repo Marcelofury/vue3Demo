@@ -1,11 +1,13 @@
 <template>
   <div>{{ message }}</div>
+  <!--Local component-->
   <contact-us></contact-us>
-  <button-count></button-count>
+  <ButtonCount></ButtonCount>
+  
 </template>
 
 <script setup>
-
+import ButtonCount from "./components/ButtonCount.vue"
 
   const message = "Hello Vue";
      
