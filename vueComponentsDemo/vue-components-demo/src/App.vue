@@ -9,7 +9,8 @@
      :phone="contact.phone" 
      :ownername="contact.ownerName" 
      :email="contact.email"
-      :isFavorite="contact.isFavorite"></Contact>
+      :isFavorite="contact.isFavorite"
+      @update-favorite="contact.isFavorite = !contact.isFavorite"></Contact>
       
 
   </div>
