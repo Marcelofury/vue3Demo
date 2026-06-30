@@ -10,7 +10,7 @@
      :ownername="contact.ownerName" 
      :email="contact.email"
       :isFavorite="contact.isFavorite"
-      @update-favorite="contact.isFavorite = !contact.isFavorite"></Contact>
+      @update-favorite="contact.isFavorite = onUpdateFavorite($event)"></Contact>
       
 
   </div>
@@ -45,6 +45,13 @@ import Contact from "./components/Contact.vue"
       isFavorite: false,
     }
   ])
+
+
+  function onUpdateFavorite(oldValueFromChildComponent){
+    console.log(oldValueFromChildComponent)
+    return !oldValueFromChildComponent[0];
+
+  }
      
 </script>
 
