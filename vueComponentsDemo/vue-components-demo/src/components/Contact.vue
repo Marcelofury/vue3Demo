@@ -35,7 +35,7 @@ import { ref } from "vue";
 
 
         function toggleFavorite(){
-                emit("update-favorite", [props.isFavorite, props.name])
+                emit("update-favorite", {isFavorite: props.isFavorite, name: props.name})
 
         }
         
