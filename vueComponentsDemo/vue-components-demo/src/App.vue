@@ -1,7 +1,10 @@
 <template>
+  <div class="bg-black text pt-3">
   <div class="container">
-  <div>{{ message }}</div>
-  Contact owner Name: <input v-model="ownerName">
+  <div class="text-white float-end">Contact owner Name: <input v-model="ownerName"></div>
+  <br><br>
+  
+  <AddContact></AddContact>
   <div class="row">
   <div class="col-12 " v-for="contact in contacts":key="contact.name">
     <Contact 
@@ -17,6 +20,7 @@
   </div>
   
   </div>
+  </div>
    
 </template>
 
@@ -24,8 +28,10 @@
 import { ref, reactive } from "vue"
 import ButtonCount from "./components/ButtonCount.vue"
 import Contact from "./components/Contact.vue"
+import AddContact from "./components/AddContact.vue"
 
-  const message = "Hello Vue";
+
+  
   const ownerName=ref("dotnetmastery")
 
   const contacts = reactive([
