@@ -4,7 +4,7 @@
   <div class="text-white float-end">Contact owner Name: <input v-model="ownerName"></div>
   <br><br>
   
-  <AddContact></AddContact>
+  <AddContact @add-contact="onAddContact"></AddContact>
   <div class="row">
   <div class="col-12 " v-for="contact in contacts":key="contact.name">
     <Contact 
@@ -49,8 +49,14 @@ import AddContact from "./components/AddContact.vue"
       phone: 5003023789,
       ownerName: "",
       isFavorite: false,
-    }
+    } 
   ])
+
+  function onAddContact(contact){
+    contact.ownerName = ownerName.value;
+    contact.isFavorite = false;
+    contacts.push(contact);
+  }
 
 
   function onUpdateFavorite(oldValueFromChildComponent, phoneNumberFromParent){
