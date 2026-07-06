@@ -2,7 +2,7 @@
     <div class="bg-info rounded p-1 pb-4 m-1">
         <div class="row">
 
-        <div class="col-6">
+        <div class="col-5">
         <h1>Name: {{ name }}</h1>
         <p>Email: {{ email }}</p>
         <p>Phone : {{ phone }}</p>
@@ -10,9 +10,12 @@
         <div class="col-3">
                 <button 
                 @click="emit('update-favorite', {isFavorite: props.isFavorite, name: props.name})"
-                :class="[isFavorite ? 'btn btn-warning' : 'btn btn-success']">
+                :class="[isFavorite ? 'btn btn-warning form-control' : 'btn btn-success form-control']">
                         {{ isFavorite ? "Remove from" : "Add to" }} Favorite
                 </button>
+        </div>
+        <div class="col-4">
+                <LuckyNumber :maxNumber="100"></LuckyNumber>
         </div>
 
         
@@ -22,6 +25,7 @@
 </div>
 </template>
 <script setup>
+import LuckyNumber from "./LuckyNumber.vue"
 import { ref } from "vue";
         
         const props = defineProps({
