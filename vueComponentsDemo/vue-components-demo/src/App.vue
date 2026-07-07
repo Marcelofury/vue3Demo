@@ -22,7 +22,7 @@
      :ownername="contact.ownerName" 
      :email="contact.email"
       :isFavorite="contact.isFavorite"
-      :maxLuckyNumber="maxNumber"
+      
       @update-favorite="contact.isFavorite = onUpdateFavorite($event,contact.phone)"></Contact>
       
 
@@ -36,7 +36,7 @@
 </template>
 
 <script setup>
-import { ref, reactive } from "vue"
+import { ref, reactive, provide } from "vue"
 import ButtonCount from "./components/ButtonCount.vue"
 import Contact from "./components/Contact.vue"
 import AddContact from "./components/AddContact.vue"
@@ -44,6 +44,7 @@ import AddContact from "./components/AddContact.vue"
 
 
   const maxNumber = ref(100)
+  provide("maxLuckyNumber" , maxNumber);
   const ownerName=ref("dotnetmastery")
 
   const contacts = reactive([

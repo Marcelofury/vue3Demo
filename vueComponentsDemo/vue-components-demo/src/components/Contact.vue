@@ -15,7 +15,7 @@
                 </button>
         </div>
         <div class="col-4">
-                <LuckyNumber :maxNumber="maxLuckyNumber"></LuckyNumber>
+                <LuckyNumber></LuckyNumber>
         </div>
 
         
@@ -33,8 +33,7 @@ import { ref } from "vue";
                 phone:Number,
                 ownername: String, 
                 email:{type: String, required: false, default: "-n/a-"},
-                isFavorite: Boolean,
-        maxLuckyNumber: Number})
+                isFavorite: Boolean})
         
         const emit = defineEmits(["update-favorite"])
 
