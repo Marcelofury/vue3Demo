@@ -7,7 +7,9 @@
     <button class="btn btn-primary text-black m-2 " @click="newVersion=true">Lucky Number V2</button> 
     <br>
     <br>
+    <KeepAlive :include="['LuckyNumber', 'LuckyNumberV2']">
     <component :is="currentComponent"/>
+    </KeepAlive>
     
 
   </div>
