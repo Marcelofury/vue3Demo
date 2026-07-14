@@ -4,9 +4,12 @@
   <div class="container text-center bg-white">
     <slot></slot>
     <button class="btn btn-primary text-black m-2" @click="newVersion = !newVersion">Toggle component</button>
+    <slot name="moreInfo"></slot>
     <button class="btn btn-primary text-black m-2" @click="newVersion=false">Lucky Number V1</button>
     <button class="btn btn-primary text-black m-2 " @click="newVersion=true">Lucky Number V2</button> 
+    
     <br>
+    <slot name="learnSlot"></slot>
     <br>
     <KeepAlive :include="['LuckyNumber', 'LuckyNumberV2']">
     <component :is="currentComponent" class="border"/>
