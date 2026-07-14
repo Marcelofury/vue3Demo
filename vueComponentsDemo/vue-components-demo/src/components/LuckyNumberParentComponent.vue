@@ -1,14 +1,15 @@
 <template>
   <div class="bg-black text pt-3" :style="{ height: '100vh'}">
-    <h1 class="text-center text-success">ContactOPedia</h1>
-  <div class="container">
+    <h1 class="text-center text-success">Learn SLOTS</h1>
+  <div class="container text-center bg-white">
+    <slot></slot>
     <button class="btn btn-primary text-black m-2" @click="newVersion = !newVersion">Toggle component</button>
     <button class="btn btn-primary text-black m-2" @click="newVersion=false">Lucky Number V1</button>
     <button class="btn btn-primary text-black m-2 " @click="newVersion=true">Lucky Number V2</button> 
     <br>
     <br>
     <KeepAlive :include="['LuckyNumber', 'LuckyNumberV2']">
-    <component :is="currentComponent"/>
+    <component :is="currentComponent" class="border"/>
     </KeepAlive>
     
 
