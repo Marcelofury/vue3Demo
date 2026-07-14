@@ -1,0 +1,43 @@
+<template>
+  <div class="bg-black text pt-3" :style="{ height: '100vh'}">
+    <h1 class="text-center text-success">ContactOPedia</h1>
+  <div class="container">
+    <button class="btn btn-primary text-black m-2" @click="newVersion = !newVersion">Toggle component</button>
+    <button class="btn btn-primary text-black m-2" @click="newVersion=false">Lucky Number V1</button>
+    <button class="btn btn-primary text-black m-2 " @click="newVersion=true">Lucky Number V2</button> 
+    <br>
+    <br>
+    <KeepAlive :include="['LuckyNumber', 'LuckyNumberV2']">
+    <component :is="currentComponent"/>
+    </KeepAlive>
+    
+
+  </div>
+  </div>
+  
+  
+  
+   
+</template>
+
+<script setup>
+import { ref, reactive, provide, compile, computed } from "vue"
+import ButtonCount from "./ButtonCount.vue"
+import LuckyNumberV2 from "./LuckyNumberV2.vue"
+import LuckyNumber from "./LuckyNumber.vue"
+
+
+const newVersion = ref(false);
+
+const currentComponent = computed(()=>{
+  return newVersion.value ? LuckyNumberV2 : LuckyNumber;
+})
+
+
+ 
+     
+</script>
+
+<style>
+
+</style>
