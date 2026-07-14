@@ -42,6 +42,9 @@ const currentComponent = computed(()=>{
      
 </script>
 
-<style>
+<style scoped>
+h1 {
+  background-color: pink;
+}
 
 </style>
