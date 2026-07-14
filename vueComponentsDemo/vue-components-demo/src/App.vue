@@ -1,26 +1,46 @@
 <template>
-<LuckyNumberParentComponent>
-  <p class="pt-2"> We have two version for picking lucky number</p>
-  <template v-slot:moreInfo>
-  <p>Click the button to toggle between the two versions</p>
-  </template>
-  <template v-slot:learnSlot>
-  <button @click="showMessage">What will we learn</button>
-  <h4 class="text-success">{{ message }}</h4>
-  </template>
-  <hr>
-</LuckyNumberParentComponent>
+<h1>{{ message }}</h1>
+<button @click="showMessage">Show Message</button>
+<br>
+<h1>{{ count }}</h1>
+<button @click="count++">Clicked {{ count }} times</button>
+<ButtonCount v-if="count == 1"/>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import ButtonCount from "./components/ButtonCount.vue"
+import { ref,onBeforeMount, onMounted,onBeforeUpdate,onUpdated,onBeforeUnmount,onUnmounted} from "vue";
 
-import LuckyNumberParentComponent from "./components/LuckyNumberParentComponent.vue"
-
-const message = ref("");
-
-function showMessage(){
-  message.value = "We will learn how to use slots"
+const message = ref("Hello Vue");
+const showMessage = ()=> {
+  message.value = "Hello Vue from function"
 }
+const count = ref(0);
+
+onBeforeMount(()=>{
+  console.log("onBeforeMount - App.vue")
+});
+
+onMounted(()=>{
+  console.log("onMounted - App.vue")
+});
+
+onBeforeUpdate(()=>{
+  console.log("onBeforeUpdate - App.vue")
+});
+
+onUpdated(()=>{
+  console.log("onUpdated - App.vue")
+});
+
+onBeforeUnmount(()=>{
+  console.log("onBeforeUnmount - App.vue")
+});
+
+onUnmounted(()=>{
+  console.log("onUnmounted - App.vue")
+});
+
+
 
 </script>
